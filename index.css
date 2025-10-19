@@ -45,7 +45,7 @@ body {
 }
 
 .sidebar {
-  width: 300px;
+  width: 250px;
   background: var(--panel);
   border-right: 1px solid var(--muted);
 }

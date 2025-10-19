@@ -1,6 +1,6 @@
 const RESOURCE_LIST_DIV = document.getElementById("list");
 
-const config = window.infractl_config.getConfig();
+const config = window.dcctl_config.getConfig();
 (async () => {
   renderList(await config);
 })();
@@ -23,11 +23,11 @@ function itemRow(it, dc_idx, it_idx) {
   const meta = it.url;
   let iconurl;
   if (it.type === "proxmox") {
-    iconurl = "./proxmox.png";
+    iconurl = "./images/proxmox.png";
   } else if (it.type === "croit") {
-    iconurl = "./ceph.png";
+    iconurl = "./images/ceph.png";
   } else if (it.type === "drp") {
-    iconurl = "./drp.png";
+    iconurl = "./images/drp.png";
   }
   return `
   <div class="item-container flex-row" onclick="selectItem(${dc_idx}, ${it_idx})">
