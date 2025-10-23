@@ -88,15 +88,19 @@ body {
   outline: 2px solid #6074ff3a;
 }
 
-.item {
+.item-details {
   justify-content: space-between;
+  overflow: hidden;
 }
 
-.item .name {
+.item-details .name {
   font-weight: 600;
 }
 
-.item .meta {
+.item-details .meta {
   font-size: 12px;
   color: var(--muted-text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
