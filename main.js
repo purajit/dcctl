@@ -32,24 +32,27 @@ ipcMain.handle("dcctl_config:get-config", async (e) => {
   );
 });
 
+function getOrCreateView(url) {
+  if (views.has(url)) {
+    return views.get(url);
+  }
+
+  const v = new BrowserView({
+    webPreferences: {
+      url,
+      contextIsolation: true,
+    },
+  });
+  v.webContents.loadURL(url);
+  views.set(url, v);
+  return v;
+}
+
 function showView(url) {
   hideCurrentView();
 
-  if (!views.has(url)) {
-    views.set(
-      url,
-      new BrowserView({
-        webPreferences: {
-          url,
-          contextIsolation: true,
-        },
-      }),
-    );
-  }
-
-  const v = views.get(url);
+  const v = getOrCreateView(url);
   views.set(url, v);
-  v.webContents.loadURL(url);
   activeView = v;
 
   win.addBrowserView(v);
