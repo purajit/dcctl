@@ -39,7 +39,7 @@ function itemRow(it, dc_idx, it_idx) {
       <img width=20px src="${iconurl}">
     </div>
     <div class="item flex-col">
-        <div class="name">${it.type || it.name}</div>
+        <div class="name">${it.name || it.type}</div>
         <div class="meta">${meta}</div>
     </div>
   </div>`;
